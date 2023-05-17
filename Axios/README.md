@@ -36,3 +36,18 @@ axios.get('https://api.example.com/data')
 
 In this example, `axios.get()` sends a GET request to the specified URL. The response is returned as a Promise, and you can use `.then()` to handle the successful response and `.catch()` to handle any errors that occur.
 
+**Step 4: Making POST Requests**
+Axios also supports making POST requests to send data to a server. Here's an example of making a POST request with some data:
+
+`
+axios.post('https://api.example.com/data', {
+    name: 'John Doe',
+    email: 'johndoe@example.com'
+  })
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+`
