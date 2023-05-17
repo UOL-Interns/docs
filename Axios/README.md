@@ -20,3 +20,19 @@ or in moduler javascript
 `import axios from axios`
 
 If you're working in a web browser, you can include Axios via a `<script>` tag or use a module bundler like Webpack.
+
+**Step 3: Making GET Requests**
+Axios provides a `get()` method for making GET requests. Here's an example of making a simple GET request to retrieve data from an API:
+
+`
+axios.get('https://api.example.com/data')
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+`
+
+In this example, `axios.get()` sends a GET request to the specified URL. The response is returned as a Promise, and you can use `.then()` to handle the successful response and `.catch()` to handle any errors that occur.
+
