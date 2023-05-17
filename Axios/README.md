@@ -24,15 +24,15 @@ If you're working in a web browser, you can include Axios via a `<script>` tag o
 **Step 3: Making GET Requests**  
 Axios provides a `get()` method for making GET requests. Here's an example of making a simple GET request to retrieve data from an API:  
 
-`
-axios.get('https://api.example.com/data')&nbsp;
+
+axios.get('https://api.example.com/data')  <br>
   .then(response => {  <br>
     console.log(response.data);  <br>
   })  <br>
   .catch(error => {  <br>
     console.error(error);  <br>
   });  <br>
-`  
+
 
 In this example, `axios.get()` sends a GET request to the specified URL. The response is returned as a Promise, and you can use `.then()` to handle the successful response and `.catch()` to handle any errors that occur.  
 
