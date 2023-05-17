@@ -11,3 +11,12 @@ Using npm:
 
 Using yarn:
 `yarn add axios`
+
+**Step 2: Importing Axios**
+In your JavaScript file, you need to import Axios to use it. If you're working with Node.js, you can import Axios as follows:
+
+`const axios = require('axios');`
+or in moduler javascript
+`import axios from axios`
+
+If you're working in a web browser, you can include Axios via a `<script>` tag or use a module bundler like Webpack.
