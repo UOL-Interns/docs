@@ -72,3 +72,7 @@ axios.get('https://api.example.com/data', {
 `
 
 In this example, the 'Authorization' header is added to the GET request with the specified token.
+
+These are just a few basic examples to get you started with Axios. The library provides many more features, such as interceptors, request cancellation, and handling response errors. I recommend referring to the official Axios documentation for more in-depth information: https://axios-http.com/docs/intro.
+
+Happy coding!
