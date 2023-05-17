@@ -51,3 +51,24 @@ axios.post('https://api.example.com/data', {
     console.error(error);
   });
 `
+
+In this example, `axios.post()` sends a POST request to the specified URL with the given data as the request payload. The response is handled similarly to the GET request example.
+
+**Step 5: Handling Headers and Authorization**
+You can also set headers, such as Content-Type or Authorization, for your requests using Axios. Here's an example of adding a custom header to a request:
+
+`
+axios.get('https://api.example.com/data', {
+    headers: {
+      'Authorization': 'Bearer your_token_here'
+    }
+  })
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+`
+
+In this example, the 'Authorization' header is added to the GET request with the specified token.
