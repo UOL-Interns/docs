@@ -27,3 +27,6 @@ Protocols, error handling, and code modularity are just some of the questions yo
 Swagger takes the manual work out of API documentation, with a range of solutions for generating, visualizing, and maintaining API docs.
 
 [Document APIs in SwaggerHub](https://app.swaggerhub.com/home)
+
+**API Testing**
+Start your functional, security, and performance testing right from the OpenAPI Spec. Swagger tooling and the ReadyAPI platform make it easy to rapidly create, manage, & execute API tests in your pipeline.
