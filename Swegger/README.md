@@ -43,3 +43,10 @@ People and processes make up a successful API program. Efficiently managing thes
 
 **API Monitoring**
 Monitor API availability, speed, and functionality starting from your OpenAPI Specification (OAS) with AlertSite for OAS. Automate monitor creation and instantly track API behavior to ensure everything runs smoothly in production.
+
+**OpenAPI Specification and Swagger**
+Swagger offers the easiest to use tools to take full advantage of all the capabilities of the OpenAPI Specification (OAS).
+
+[Source](https://swagger.io/)
+
+Happy Coding!
