@@ -35,3 +35,8 @@ Start your functional, security, and performance testing right from the OpenAPI 
 Reduce dependencies in your development and testing cycles and stand-up realistic, dynamic mocks in seconds with Swagger and ReadyAPI Virtualization.
 
 [Try Ready Api Virtualization](https://smartbear.com/product/ready-api/api-virtualization)
+
+**Governance and Standardization**  
+People and processes make up a successful API program. Efficiently managing these efforts makes for good governance. Whether you have a team of five or five hundred, Swagger can help.
+
+[Explore SwaggerHub](https://swagger.io/tools/swaggerhub/enterprise/)
