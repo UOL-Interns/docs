@@ -22,3 +22,8 @@ Design is the foundation of your API development. Swagger makes API design a bre
 Protocols, error handling, and code modularity are just some of the questions your teams need to address before building a great API. Swagger provides tools for quickly prototyping and building your API’s functionality.
 
 [Develop APIs with SwaggerHub](https://app.swaggerhub.com/home)
+
+**API Documentation**  
+Swagger takes the manual work out of API documentation, with a range of solutions for generating, visualizing, and maintaining API docs.
+
+[Document APIs in SwaggerHub](https://app.swaggerhub.com/home)
