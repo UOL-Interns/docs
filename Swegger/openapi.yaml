@@ -1,0 +1,47 @@
+openapi: 3.0.0 
+info:
+  title: Bookstore API
+  description: Bookstore api for coursera guided Project
+  version: "1.0"
+  contact:
+    name: Sajid
+    url: http://bookstore.com
+    email: iamsajiddev@gmail.com
+servers:
+  - url: http://booksstore.dev.com
+  - url: http://booksstore.production.com
+  - url: http://booksstore.perf.com
+paths:
+  /bookstore:
+    description: This endpoint will outline the bookstore and anable you to query a book.
+    get: 
+      description: Get operation that will get book details
+      parameters: 
+        - in: query
+          name: bookInformation
+          required: true
+          schema:
+            type: string
+            example: "Game of Thrones"
+      responses:
+        200:
+          description: successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/book'
+components:
+  schemas:
+    book:
+      type: object
+      properties:
+        bookId: 
+          type: integer
+          example: 2
+        bookName:
+          type: string
+          example: "Game of thrones"
+        authorName:
+          type: string
+          example: "Sajid M"
+
