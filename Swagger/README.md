@@ -1,6 +1,6 @@
-# Swegger
+# swagger
 
-Swegger is a tool use for:
+swagger is a tool use for:
 
  - API Design
  - API Development
