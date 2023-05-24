@@ -1,0 +1,58 @@
+module.exports=(sequelize,Sequilze)=>{
+    const User=sequelize.define("user",{
+        id:{
+            type:Sequilze.INTEGER,
+            primaryKey:true,
+            autoIncrement:true 
+        },
+        username:{
+            type:Sequilze.STRING,
+            unique:true,
+            allowNull:false,
+        },
+        email:{
+            type:Sequilze.STRING,
+            unique:true,
+            allowNull:false,
+        },
+        password:{
+            type:Sequilze.STRING,
+            allowNull:false,
+        },
+        role:{
+            type:Sequilze.STRING,
+            allowNull:false,
+        },
+        status:{
+            type:Sequilze.STRING,
+            allowNull:false,
+            defaultValue:"disabled",
+        },
+        isvarified:{
+            type:Sequilze.BOOLEAN,
+            allowNull:false,
+            defaultValue:false,
+        },
+        verificationtoken:{
+            type:Sequilze.STRING,
+            allowNull:true,
+        },
+        isApprovedByAdmin:{
+            type:Sequilze.BOOLEAN,
+            allowNull:false,
+            defaultValue:false,
+        },
+        createdAt:{
+            type:Sequilze.DATE,
+            allowNull:false,
+            defaultValue:Sequilze.NOW,
+        },
+        updatedAt:{
+            type:Sequilze.DATE,
+            allowNull:false,
+            defaultValue:Sequilze.NOW,
+        },
+
+    });
+    return User;
+}

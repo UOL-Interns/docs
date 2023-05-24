@@ -1,0 +1,1162 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "CRM Project",
+    "description": "My CRM Project APIs",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:5000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "Auth",
+      "description": "Auth APIs"
+    },
+    {
+      "name": "leadManagement",
+      "description": "Lead Management APIs"
+    },
+    {
+      "name": "Settings",
+      "description": "Time Setting APIs"
+    },
+    {
+      "name": "Marketing",
+      "description": "Marketing APIs"
+    }
+  ],
+  "schemes": ["http", "https"],
+  "consumes": [
+    "application/json",
+    "text/html",
+    "text/plain",
+    "application/xml",
+    "text/xml",
+    "application/x-www-form-urlencoded"
+  ],
+  "produces": [
+    "application/json",
+    "text/html",
+    "text/plain",
+    "application/xml",
+    "text/xml",
+    "application/x-www-form-urlencoded"
+  ],
+  "paths": {
+    "/users/register": {
+      "post": {
+        "tags": ["Auth"],
+        "description": "Register User",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Object",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        }
+      }
+    },
+    "/users/getUserById": {
+      "post": {
+        "tags": ["Auth"],
+        "description": "Get User By Id",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Object",
+            "schema": {
+              "properties": {
+                "userId": {
+                  "type": "integer",
+                  "default": 0
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/getAllUsers": {
+      "get": {
+        "tags": ["Auth"],
+        "description": "Get All Users",
+        "parameters": [
+          {
+            "name": "userStatus",
+            "in": "query",
+            "description": "User Status",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Page Number",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Page Size",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "Sort",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "searchString",
+            "in": "query",
+            "description": "Search",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": ["Auth"],
+        "description": "Login User",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Object",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/verify": {
+      "post": {
+        "tags": ["Auth"],
+        "description": "Verify Email",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Object",
+            "schema": {
+              "properties": {
+                "verificationtoken": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/users/updateUser/:id": {
+      "put": {
+        "tags": ["Auth"],
+        "description": "Update User",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Object",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        }
+      }
+    },
+
+    "/users/forgetPassword": {
+      "post": {
+        "tags": ["Auth"],
+        "description": "Forget Password",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Object",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        }
+      }
+    },
+    "/users/findUserById/:id": {
+      "get": {
+        "tags": ["Auth"],
+        "description": "Find User By Id",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User Object",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Auth"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/createLead": {
+      "post": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/leadManagement/deleteLead": {
+      "post": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "properties": {
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mastersheet/checkDuplicateEmail": {
+      "post": {
+        "tags": ["MasterSheet"],
+        "description": "check for duplicate email",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "description": "Lead Email",
+            "schema": {
+              "$ref": "#/definitions/CheckDuplicateEmail"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CheckDuplicateEmail"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/getAllLeads": {
+      "post": {
+        "tags": ["leadManagement"],
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "$ref": "#/definitions/GetLeadsParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetLeadsParams"
+            }
+          }
+        }
+      }
+    },
+    "/leadManagement/getAllLeadsByUserId": {
+      "post": {
+        "tags": ["leadManagement"],
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "$ref": "#/definitions/GetLeadsByUserIdParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetLeadsByUserIdParams"
+            }
+          }
+        }
+      }
+    },
+    "/leadManagement/getAllBDLeadsByUserId": {
+      "post": {
+        "tags": ["leadManagement"],
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "BD Lead Object",
+            "schema": {
+              "$ref": "#/definitions/GetLeadsByUserIdParams"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/GetLeadsByUserIdParams"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/updateLead": {
+      "post": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/generateReport": {
+      "post": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "parameters": [
+          {
+            "name": "lead",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "required": ["fromDate", "toDate"],
+              "properties": {
+                "fromDate": {
+                  "type": "string",
+                  "default": null
+                },
+                "toDate": {
+                  "type": "string",
+                  "default": null
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/leadManagement/getLeadById/:id": {
+      "get": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Lead Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/getLeadByEmail/:email": {
+      "get": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "description": "Lead Email",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/getPerHourLeads": {
+      "get": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/getPerDayLeads": {
+      "get": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/getPerWeekLeads": {
+      "get": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+    "/leadManagement/getPerMonthLeads": {
+      "get": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+
+    "/leadManagement/getPerYearLeads": {
+      "get": {
+        "tags": ["leadManagement"],
+        "description": "Lead APIs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Lead"
+            }
+          }
+        }
+      }
+    },
+
+    "/settings/upsertTimeSettings": {
+      "post": {
+        "tags": ["Settings"],
+        "description": "Settings APIs",
+        "parameters": [
+          {
+            "name": "timeSetting",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "$ref": "#/definitions/timeSetting"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/settings/getTimeSettings": {
+      "get": {
+        "tags": ["Settings"],
+        "description": "Get Time settings",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/marketing/sendMarketingEmail": {
+      "post": {
+        "tags": ["Marketing"],
+        "description": "Send Marketing Email",
+        "parameters": [
+          {
+            "name": "marketingEmail",
+            "in": "body",
+            "description": "Marketing Email Object",
+            "schema": {
+              "$ref": "#/definitions/marketingEmail"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/templates/createTemplate": {
+      "post": {
+        "tags": ["Templates"],
+        "description": "Create Template",
+        "parameters": [
+          {
+            "name": "template",
+            "in": "body",
+            "description": "Template Object",
+            "schema": {
+              "$ref": "#/definitions/EmailTemplates"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/templates/getAllTemplates": {
+      "get": {
+        "tags": ["Templates"],
+        "description": "Get All Templates",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/EmailTemplates"
+            }
+          }
+        }
+      }
+    },
+
+    "/templates/getTemplateById/:id": {
+      "get": {
+        "tags": ["Templates"],
+        "description": "Get Template By Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Template Id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/EmailTemplates"
+            }
+          }
+        }
+      }
+    },
+
+    "/templates/updateTemplateById/:id": {
+      "put": {
+        "tags": ["Templates"],
+        "description": "Update Template By Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Template Id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "template",
+            "in": "body",
+            "description": "Template Object",
+            "schema": {
+              "$ref": "#/definitions/EmailTemplates"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/templates/deleteAllTemplates": {
+      "delete": {
+        "tags": ["Templates"],
+        "description": "Delete All Templates",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/templates/deleteTemplateById": {
+      "post": {
+        "tags": ["Templates"],
+        "description": "Delete Template By Id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "body",
+            "description": "Template Id",
+            "required": true,
+            "schema": {
+              "properties": {
+                "id": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/mastersheet/getWholeMasterSheetWithPagination": {
+      "post": {
+        "tags": ["MasterSheet"],
+        "parameters": [
+          {
+            "name": "MasterSheet API",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "$ref": "#/definitions/Mastersheet"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mastersheet/getWholeMasterSheetWithoutPagination": {
+      "post": {
+        "tags": ["MasterSheet"],
+        "parameters": [
+          {
+            "name": "MasterSheet API",
+            "in": "body",
+            "description": "Lead Object",
+            "schema": {
+              "properties": {
+                "fromDate": {
+                  "type": "string",
+                  "default": null
+                },
+                "toDate": {
+                  "type": "string",
+                  "default": null
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/mastersheet/checkBounceBack": {
+      "post": {
+        "tags": ["MasterSheet"],
+        "parameters": [
+          {
+            "name": "MasterSheet API",
+            "in": "body",
+            "description": "Check email bounce back",
+            "schema": {
+              "properties": {
+                "email": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/mastersheet/addLeadToMasterSheet": {
+      "post": {
+        "tags": ["MasterSheet"],
+        "parameters": [
+          {
+            "name": "MasterSheet API",
+            "in": "body",
+            "description": "Add Lead To Mastersheet",
+            "schema": {
+              "properties": {
+                "firstName": {
+                  "type": "string"
+                },
+                "lastName": {
+                  "type": "string"
+                },
+                "jobTitle": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "companyName": {
+                  "type": "string"
+                },
+                "unSubEmails": {
+                  "type": "string"
+                },
+                "country": {
+                  "type": "string"
+                },
+                "sector": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+
+    "/checkLead": {
+      "post": {
+        "tags": ["Scrapping"],
+        "parameters": [
+          {
+            "name": "Scrap Websites",
+            "in": "body",
+            "description": "Scrap URL Data",
+            "schema": {
+              "properties": {
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+
+  "definitions": {
+    "Auth": {
+      "required": ["id", "username", "email", "password", "role"],
+      "properties": {
+        "username": {
+          "type": "string",
+          "default": ""
+        },
+        "email": {
+          "type": "string",
+          "default": ""
+        },
+        "role": {
+          "type": "string",
+          "default": ""
+        },
+        "status": {
+          "type": "string",
+          "default": ""
+        },
+        "password": {
+          "type": "string",
+          "default": ""
+        },
+        "isverified": {
+          "type": "boolean"
+        }
+      }
+    },
+
+    "Lead": {
+      "required": [
+        "companyName",
+        "companyBusinessWebsite",
+        "title",
+        "firstName",
+        "lastName",
+        "email",
+        "recentJobPost",
+        "sourceOfLead",
+        "jobPostingLink",
+        "industry",
+        "companySize",
+        "companyLinkdin",
+        "personLinkedin",
+        "country",
+        "sector",
+        "emailSendingDate",
+        "userId"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "default": 0
+        },
+        "companyName": {
+          "type": "string",
+          "default": ""
+        },
+        "companyBusinessWebsite": {
+          "type": "string",
+          "default": ""
+        },
+        "title": {
+          "type": "string",
+          "default": ""
+        },
+        "firstName": {
+          "type": "string",
+          "default": ""
+        },
+        "lastName": {
+          "type": "string",
+          "default": ""
+        },
+        "email": {
+          "type": "string",
+          "default": ""
+        },
+        "telephone": {
+          "type": "string",
+          "default": ""
+        },
+        "recentJobPost": {
+          "type": "string",
+          "default": ""
+        },
+        "sourceOfLead": {
+          "type": "string",
+          "default": ""
+        },
+        "jobPostingLink": {
+          "type": "string",
+          "default": ""
+        },
+        "industry": {
+          "type": "string",
+          "default": ""
+        },
+        "companySize": {
+          "type": "string",
+          "default": ""
+        },
+        "companyLinkdin": {
+          "type": "string",
+          "default": ""
+        },
+        "personLinkedin": {
+          "type": "string",
+          "default": ""
+        },
+        "postedBy": {
+          "type": "string",
+          "default": ""
+        },
+        "country": {
+          "type": "string",
+          "default": ""
+        },
+        "sector": {
+          "type": "string",
+          "default": ""
+        },
+        "emailSendingDate": {
+          "type": "string",
+          "default": ""
+        },
+        "userId": {
+          "type": "number",
+          "default": ""
+        },
+        "leadStatus": {
+          "type": "string",
+          "default": "new"
+        }
+      }
+    },
+
+    "GetLeadsParams": {
+      "properties": {
+        "pageNumber": {
+          "type": "number",
+          "default": 0
+        },
+        "pageSize": {
+          "type": "number",
+          "default": 0
+        }
+      }
+    },
+    "GetLeadsByUserIdParams": {
+      "properties": {
+        "userId": {
+          "type": "integer",
+          "default": 0
+        },
+        "pageNumber": {
+          "type": "number",
+          "default": 0
+        },
+        "pagePize": {
+          "type": "number",
+          "default": 0
+        }
+      }
+    },
+
+    "CheckDuplicateEmail": {
+      "properties": {
+        "email": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "timeSetting": {
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "default": ""
+        },
+        "endTime": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "marketingEmail": {
+      "properties": {
+        "email": {
+          "type": "string",
+          "default": ""
+        },
+        "subject": {
+          "type": "string",
+          "default": ""
+        },
+        "message": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "EmailTemplates": {
+      "properties": {
+        "title": {
+          "type": "string",
+          "default": ""
+        },
+        "subject": {
+          "type": "string",
+          "default": ""
+        },
+        "body": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    },
+    "Mastersheet": {
+      "properties": {
+        "country": {
+          "type": "string",
+          "default": ""
+        },
+        "sector": {
+          "type": "string",
+          "default": ""
+        },
+        "pageNumber": {
+          "type": "number",
+          "default": 0
+        },
+        "pageSize": {
+          "type": "number",
+          "default": 10
+        },
+        "searchString": {
+          "type": "string",
+          "default": ""
+        }
+      }
+    }
+  }
+}
